@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>صفحه اصلی</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <div class="logo">
+        <img src="logo.svg" alt="لوگو" style="background:none;width:100%;height:100%;object-fit:contain;border-radius:inherit;display:block" />
+      </div>
+      <div>
+        <div style="font-weight:700">فروشگاه اینترنتی فرطب</div>
+        <div style="font-size:12px;color:var(--muted)">محصولات سلامتی گیاهی فران</div>
+      </div>
+    </div>
+
+    <nav class="links">
+      <a class="btn" id="homeLink" href="http://farteb.com">صفحه اصلی سایت</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="left">
+      <h1>محصولات گیاهی و طبیعی با کیفیت جهانی</h1>
+      <p>
+        شرکت کشت و صنعت نوشین شهد ارومیه با بهره‌گیری از بیش از ۵۰۰ گونه گیاهان دارویی آذربایجان و تجهیزات روز دنیا، محصولات گیاهی و طبیعی با بالاترین کیفیت را تولید می‌کند. نوشیدنی‌ها و عصاره‌های ما بر پایه طب سنتی و ارگانیک، در بهبود مشکلاتی چون کبد چرب، پروستات، چربی خون، سنگ کلیه و فشار خون نقش مؤثری دارند.
+      </p>
+      <!-- دکمه تریگر ویدیو + فرم -->
+      <a class="btn" id="startBtn" href="#">شروع کنید</a>
+    </div>
+
+    <div class="right" style="width:360px;max-width:40%">
+      <div style="background:none">
+        <img src="hero.png" alt="محصولات گیاهی" style="width:100%;border-radius:12px;display:block" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ویدیو پس‌زمینه (عمودی برای موبایل) -->
+  <video id="bgVideo" class="bg-video" preload="auto" playsinline>
+    <source src="video-vertical.mp4" type="video/mp4">
+    مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+  </video>
+
+  <!-- لایه ورود شماره -->
+  <div id="overlayForm" class="overlay" style="display:none">
+    <div class="form-box">
+      <button type="button" class="overlay-close" aria-label="بستن">×</button>
+      <img src="logon.svg" alt="ورود شماره موبایل" class="form-img" />
+      <h2>ورود شماره موبایل</h2>
+      <input id="phoneInput" type="tel" placeholder="مثلاً 09123456789" />
+      <button class="btn" id="submitPhone">ادامه</button>
+      <div id="phoneMsg" class="hint"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>© 2025 فرطب — همهٔ حقوق محفوظ است.</div>
+    <div style="margin-top:6px;color:var(--muted)">تمامی حقوق این سایت متعلق به شرکت کشت و صنعت نوشین است.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
