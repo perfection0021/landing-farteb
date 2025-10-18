@@ -1,0 +1,495 @@
+:root{
+  --bg:#0f1216;              /* پس‌زمینه تیره صفحه */
+  --card:#ffffff;            /* کارت سفید */
+  --ink:#0f172a;             /* متن تیره */
+  --muted:#6b7280;           /* متن کم‌رنگ */
+  --border:#e5e7eb;          /* خط‌ها و کادرها */
+  --primary:#0f2a33;         /* دکمه اصلی (آبی تیره مایل به سبز) */
+  --primary-ink:#ffffff;     /* متن روی دکمه اصلی */
+  --radius-xl:24px;
+  --radius-lg:16px;
+  --shadow:0 10px 30px rgba(15,23,42,.08), 0 4px 12px rgba(15,23,42,.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Vazirmatn", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+}
+
+/* صفحه و کارت اصلی */
+.page{
+  min-height:100dvh;
+  display:grid;
+  place-items:center;
+  padding:32px 16px;
+}
+.auth-card{
+  width:100%;
+  max-width:1100px;
+  background:var(--card);
+  border-radius:var(--radius-xl);
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns: 1fr;
+  overflow:hidden;
+}
+
+/* دو ستونه روی دسکتاپ */
+@media (min-width: 992px){
+  .auth-card{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-col{
+  padding:40px 28px 28px;
+}
+@media (min-width: 576px){
+  .form-col{ padding:56px 48px; }
+}
+
+.form-header h1{
+  margin:0 0 8px 0;
+  font-size: clamp(22px, 2.6vw, 34px);
+  font-weight: 700;
+}
+.form-header p{
+  margin:0 0 24px 0;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+/* فیلدها */
+.field{ display:block; margin-bottom:18px; }
+.field > span{ display:block; margin-bottom:8px; font-weight:600; }
+input{
+  width:100%;
+  height:46px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:0 14px;
+  outline:none;
+  background:#f8fafc;
+  transition:border-color .2s, box-shadow .2s, background .2s;
+}
+input::placeholder{ color:#a0a6ae; }
+input:focus{
+  border-color:#b6c3d1;
+  box-shadow:0 0 0 4px rgba(59,130,246,.12);
+  background:#fff;
+}
+
+/* رمز با دکمه چشم */
+.password-wrap{
+  position:relative;
+}
+.eye-btn{
+  position:absolute;
+  inset-inline-start:8px; /* چون راست‌به‌چپه، میاد چپ فیلد */
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:transparent;
+  padding:6px;
+  cursor:pointer;
+  opacity:.6;
+}
+.eye-btn:hover{ opacity:1; }
+.eye-btn svg{ fill:#6b7280; }
+
+/* ردیف برچسب/لینک */
+.row-between{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.muted-link{
+  color:#5b87ff;
+  text-decoration:none;
+  font-size:.9rem;
+}
+.muted-link:hover{ text-decoration:underline; }
+
+/* دکمه‌ها */
+.btn{
+  width:100%;
+  height:48px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#f3f6fb;
+  color:var(--ink);
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .04s ease, box-shadow .2s, background .2s, color .2s;
+}
+.btn:active{ transform:translateY(1px); }
+.btn.primary{
+  background:var(--primary);
+  color:var(--primary-ink);
+  border:none;
+  margin-top:8px;
+}
+.btn.primary:hover{ filter:brightness(1.06); }
+
+.btn.social{
+  background:#f8fafc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+.btn.social .icon{
+  width:24px;height:24px;display:grid;place-items:center;
+}
+
+/* جداکننده Or */
+.divider{
+  position:relative;
+  text-align:center;
+  margin:20px 0;
+  color:#9aa3ad;
+}
+.divider::before,
+.divider::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:42%;
+  height:1px;
+  background:var(--border);
+}
+.divider::before{ inset-inline-start:0; }
+.divider::after{ inset-inline-end:0; }
+.divider span{
+  padding:0 10px;
+  background:var(--card);
+}
+
+/* متن‌های پایین */
+.foot-text{
+  text-align:center;
+  margin:18px 0 10px;
+  color:var(--muted);
+}
+.link{ color:#2563eb; text-decoration:none; font-weight:600; }
+.link:hover{ text-decoration:underline; }
+
+.copyright{
+  margin:18px 0 0;
+  text-align:center;
+  font-size:.86rem;
+  color:#a0a6ae;
+}
+
+/* ستون تصویر */
+.image-col{
+  display:none;
+  background:#0b0e13;
+}
+@media (min-width: 992px){
+  .image-col{ display:block; }
+}
+.hero-img{
+  width:100%;
+  height:100%;
+  background-image:url("./images/img.jpg");
+  background-size:cover;
+  background-position:center;
+  border-radius: clamp(16px, 2vw, 24px);
+  margin:20px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+/* کارت موبایل با پیش‌نمایش تصویر در بالا (مثل طرح) */
+.mobile-preview{
+  display:grid;
+  place-items:center;
+  margin: -8px 0 18px;
+}
+.mobile-preview img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:16px;
+  box-shadow:0 6px 14px rgba(15,23,42,.12);
+}
+
+/* پیام خطا */
+.error{
+  display:block;
+  min-height:18px;
+  padding-top:4px;
+  color:#dc2626;
+  font-size:.85rem;
+}
+
+/* اسکرول بار لطیف (اختیاری) */
+*::-webkit-scrollbar{ width:10px; height:10px }
+*::-webkit-scrollbar-thumb{ background:#cfd6df; border-radius:999px }
+*::-webkit-scrollbar-track{ background:transparent }
+
+/* ----- دکمه‌های عمومی قبلی‌ت هست ----- */
+/* دکمه ثانویه برای "رضایت مشتریان" */
+.btn.secondary{
+  margin-top:12px;
+  background:#ffffff;
+  border:1px solid var(--border);
+  color:#1f2937;
+}
+.btn.secondary:hover{
+  background:#f9fafb;
+}
+
+/* ===== تبلیغ کبد چرب (بالای فرم) ===== */
+.promo{
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.promo-title{
+  margin: 0 0 8px 0;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 800;
+  color: #ef4444; /* قرمز هشدار */
+}
+.promo-lead{
+  margin: 0 0 10px 0;
+  color: var(--ink);
+  line-height: 1.9;
+  font-weight: 500;
+}
+.promo-list{
+  margin: 0 0 12px 1rem; /* فاصله از متن بالا و کمی تورفتگی */
+  padding: 0 18px 0 0;
+  color: var(--ink);
+}
+.promo-list li{
+  margin: 6px 0;
+  line-height: 1.9;
+  list-style: "🔹 ";
+}
+/* کادر تبلیغ فران */
+.promo-cta {
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin: 16px 0 0;
+  font-weight: 700;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(16,185,129,0.3);
+}
+
+
+/* دکمه رضایت مشتریان در هدر تبلیغ */
+.promo-actions{
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+/* دکمه رضایت مشتریان */
+.btn.secondary {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: #ffff;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(22,163,74,0.3);
+  transition: all 0.3s ease;
+}
+.btn.secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(22,163,74,0.4);
+  filter: brightness(1.1);
+}
+
+
+/* فاصله فرم از تبلیغ */
+#loginForm{
+  margin-top: 12px;
+}
+
+/* ======== پنل ویدیو رضایت مشتریان ======== */
+.video-panel {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 999;
+  transition: all 0.6s cubic-bezier(.25,.8,.25,1);
+}
+
+.video-panel.hidden {
+  pointer-events: none;
+  background: transparent;
+  transform: translateY(100%);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  background: #000;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.5);
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+}
+
+.video-panel.hidden .video-container {
+  transform: translateY(100%);
+}
+
+/* دکمه ضربدر بالا سمت راست */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.3s ease;
+  z-index: 99;              /* 👈 همیشه روی همه‌چیز باشه */
+  pointer-events: auto;     /* 👈 کلیک فعال باشه */
+}
+
+.close-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+/* ویدیو */
+video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  z-index: 1;               /* 👈 زیر ضربدر قرار بگیره */
+  pointer-events: none;     /* 👈 تا کلیک‌ها به دکمه برسن */
+}
+
+
+/* ===== متن اسلایدی لوکس علائم ===== */
+/* ===== اسلاید لوکس علائم کبد چرب ===== */
+.promo-slider {
+  position: relative;
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 12px;
+}
+
+.fade-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  transform: translateY(10px);
+}
+
+.fade-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* افکت محو نرم */
+@keyframes fadeLoop {
+  0% { opacity: 0; transform: translateY(10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  25% { opacity: 1; }
+  35% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; }
+}
+
+/* ===== افکت نورانی چرخان اطراف فیلد ===== */
+.field {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 2px; /* فاصله داخلی برای مرز انیمیشنی */
+  margin-bottom: 18px;
+}
+
+.field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(
+    from 0deg,
+    #22c55e,
+    #16a34a,
+    #10b981,
+    #22c55e
+  );
+  animation: spinBorder 4s linear infinite;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+/* ماسک داخل برای رنگ پس‌زمینه فرم */
+.field::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #fff; /* پس‌زمینه فرم */
+  border-radius: 8px;
+  z-index: 0;
+}
+
+/* متن label و input باید بالای افکت باشن */
+.field span,
+.field input,
+.field small {
+  position: relative;
+  z-index: 1;
+}
+
+/* استایل خود input */
+.field input {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #111827;
+  font-family: inherit;
+}
+
+
+@keyframes spinBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ماسک برای دیده‌شدن فقط لبه‌ها */
+.field::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff; /* رنگ پس‌زمینه فرم */
+  border-radius: 8px;
+  z-index: 0;
+}
