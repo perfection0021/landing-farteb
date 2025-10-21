@@ -1,65 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>پاکسازی کبد چرب با فران</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="page">
-    <section class="auth-card">
-      <div class="form-col">
-
-        <!-- بخش تبلیغی -->
-        <header class="promo">
-          <h1 class="promo-title">🔴 کبد چرب؛ بیماری پنهانِ این روزها</h1>
-          <p class="promo-lead">برخی نشانه‌ها را دست‌کم نگیرید — احتمال کبد چرب وجود دارد:</p>
-          <div class="promo-slider">
-  <span id="symptomText" class="fade-text">خستگی و بی‌حالی همیشگی</span>
-</div>
-
-          <p class="promo-cta">
-            ✅✅ <strong>عصاره ده گیاه فران</strong>، ترکیبی از مؤثرترین گیاهان دارویی برای پاکسازی و بهبود عملکرد کبد.
-          </p>
-
-          <div class="promo-actions">
-            <button id="showVideoBtn" class="btn secondary">رضایت مشتریان 🎥</button>
-          </div>
-        </header>
-
-        <!-- فرم -->
-        <form id="loginForm" novalidate>
-          <label class="field">
-            <span>شماره تلفن</span>
-            <input type="tel" name="phone" id="phone" inputmode="tel" placeholder="مثلاً 0912xxxxxxx یا +98912xxxxxxx" required />
-            <small class="error"></small>
-          </label>
-
-          <button class="btn primary" type="submit" id="submitBtn">ثبت شماره</button>
-          <p class="copyright">© ۲۰۲۵ تمامی حقوق محفوظ است</p>
-        </form>
-      </div>
-
-    </section>
-  </main>
-
-  <!-- 🔹 پنل ویدیو (پنهان در ابتدا) -->
-<div id="videoPanel" class="video-panel hidden">
-  <div class="video-container">
-    <button id="closeVideo" class="close-btn" aria-label="بستن">✕</button>
-    <video id="customerVideo" src="./images/video.mp4" playsinline autoplay muted preload="auto"></video>
-  </div>
-</div>
-
-
-  <template id="mobile-card-template">
-    <div class="mobile-preview">
-      <img src="./images/images.png" alt="پیش‌نمایش" />
-    </div>
-  </template>
-
-  <script src="app.js"></script>
-</body>
-</html>
